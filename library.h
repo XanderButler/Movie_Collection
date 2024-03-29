@@ -13,18 +13,7 @@ struct Movie {
     float price;
     int year;
 
-    Movie(const std::string& title, const std::string& director, int runtime, const std::string& format, float price, int year)
-        : title(title), director(director), runtime(runtime), format(format), price(price), year(year) {}
-
-    void display() const {
-        std::cout << "Title: " << title << "\n";
-        std::cout << "Director: " << director << "\n";
-        std::cout << "Runtime: " << runtime << " minutes\n";
-        std::cout << "Format: " << format << "\n";
-        std::cout << "Price: $" << price << "\n";
-        std::cout << "Year: " << year << "\n";
-        std::cout << "-----------------------\n";
-    }
+    void display() const;
 };
 
 class Library {
