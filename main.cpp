@@ -1,4 +1,8 @@
 #include <iostream>
+#include <fstream>
+#include <list>
+#include <string>
+#include <iomanip>
 #include "library.h"
 
 void displayMenu() {
@@ -15,60 +19,44 @@ int main() {
     Library library;
     int choice;
     std::string searchStr, director, title;
-    Movie newMovie("", "", 0, "", 0.0, 0);
+    Movie newMovie;
 
     while (true) {
         displayMenu();
         std::cin >> choice;
+        std::cin.ignore(); // Clear newline character
 
         switch (choice) {
             case 1:
                 std::cout << "Enter title: ";
-                std::cin.ignore();
                 std::getline(std::cin, newMovie.title);
                 std::cout << "Enter director: ";
                 std::getline(std::cin, newMovie.director);
-                do {
-                    std::cout << "Enter runtime (minutes): ";
-                    std::cin >> newMovie.runtime;
-                    if (newMovie.runtime <= 0) {
-                        std::cout << "Invalid runtime. Please enter a positive value.\n";
-                    }
-                } while (newMovie.runtime <= 0);
-                std::cin.ignore();
+                std::cout << "Enter runtime (minutes): ";
+                std::cin >> newMovie.runtime;
+                std::cin.ignore(); // Clear newline character
                 std::cout << "Enter format: ";
                 std::getline(std::cin, newMovie.format);
-                do {
-                    std::cout << "Enter price: ";
-                    std::cin >> newMovie.price;
-                    if (newMovie.price <= 0.0) {
-                        std::cout << "Invalid price. Please enter a positive value.\n";
-                    }
-                } while (newMovie.price <= 0.0);
-                do {
-                    std::cout << "Enter year: ";
-                    std::cin >> newMovie.year;
-                    if (newMovie.year <= 0) {
-                        std::cout << "Invalid year. Please enter a positive value.\n";
-                    }
-                } while (newMovie.year <= 0);
+                std::cout << "Enter price: ";
+                std::cin >> newMovie.price;
+                std::cin.ignore(); // Clear newline character
+                std::cout << "Enter year: ";
+                std::cin >> newMovie.year;
+                std::cin.ignore(); // Clear newline character
                 library.insertMovie(newMovie);
                 break;
             case 2:
                 std::cout << "Enter search string: ";
-                std::cin.ignore();
                 std::getline(std::cin, searchStr);
                 library.findMovie(searchStr);
                 break;
             case 3:
                 std::cout << "Enter director's name: ";
-                std::cin.ignore();
                 std::getline(std::cin, director);
                 library.directorSearch(director);
                 break;
             case 4:
                 std::cout << "Enter title of movie to remove: ";
-                std::cin.ignore();
                 std::getline(std::cin, title);
                 library.removeMovie(title);
                 break;
