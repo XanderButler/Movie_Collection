@@ -5,15 +5,16 @@
 #include <iomanip>
 #include "library.h"
 
-void displayMenu() {
-    std::cout << "1. Add a movie\n";
-    std::cout << "2. Find movies by title\n";
-    std::cout << "3. Find movies by director\n";
-    std::cout << "4. Remove a movie\n";
-    std::cout << "5. Display all movies\n";
-    std::cout << "6. Exit\n";
-    std::cout << "Enter your choice: ";
-}
+
+/**
+ * A main helper function to print the menu.
+ *
+ * @pre 
+ * @return void 
+ * @post the menu will be printed for the user on the console
+ * 
+ */
+void displayMenu();
 
 int main() {
     Library library;
@@ -71,4 +72,14 @@ int main() {
     }
 
     return 0;
+}
+
+void displayMenu() {
+  std::cout << "1. Add a movie\n";
+  std::cout << "2. Find movies by title\n";
+  std::cout << "3. Find movies by director\n";
+  std::cout << "4. Remove a movie\n";
+  std::cout << "5. Display all movies\n";
+  std::cout << "6. Exit\n";
+  std::cout << "Enter your choice: ";
 }
