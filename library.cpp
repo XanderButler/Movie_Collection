@@ -1,9 +1,17 @@
 #include "library.h"
-#include <algorithm>
+
+void Movie::display() const {
+    std::cout << "Title: " << title << "\n";
+    std::cout << "Director: " << director << "\n";
+    std::cout << "Runtime: " << runtime << " minutes\n";
+    std::cout << "Format: " << format << "\n";
+    std::cout << "Price: $" << price << "\n";
+    std::cout << "Year: " << year << "\n";
+    std::cout << "-----------------------\n";
+}
 
 void Library::insertMovie(const Movie& movie) {
     movies.push_back(movie);
-    movies.sort([](const Movie& a, const Movie& b) { return a.title < b.title; });
 }
 
 void Library::findMovie(const std::string& searchStr) const {
