@@ -20,10 +20,10 @@ int main() {
     Library library;
     int choice;
     std::string searchStr, director, title;
-    std::string inFile = "movies.txt";
+    Movie newMovie;
 
-    // Load movies from file
-    library.loadFromFile(inFile);
+    // Load movies from file upon startup
+    library.loadFromFile("movies.txt");
 
     while (true) {
         displayMenu();
@@ -68,7 +68,7 @@ int main() {
                 library.displayAll();
                 break;
             case 6:
-                library.storeToFile(inFile); // Store movies back to file before exiting
+                library.storeToFile("movies.txt");
                 return 0;
             default:
                 std::cout << "Invalid choice. Please try again.\n";
@@ -84,5 +84,7 @@ void displayMenu() {
   std::cout << "3. Find movies by director\n";
   std::cout << "4. Remove a movie\n";
   std::cout << "5. Display all movies\n";
-  std::cout << "6. Exit\n";
+  std::cout << "6. Store to file\n";
+  std::cout << "7. Exit\n";
   std::cout << "Enter your choice: ";
+}
