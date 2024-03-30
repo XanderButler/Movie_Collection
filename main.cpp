@@ -1,3 +1,13 @@
+/**
+ * @file main.cpp
+ * @author1 Xander Butler
+ * @author2 Jacqueline Bybee
+ * @date 2024-03-29
+ * @brief main file for Movie_Collection.
+ * 
+ * provides interface and quick access to the functions contained within library.
+ */
+
 #include <iostream>
 #include <fstream>
 #include <list>
