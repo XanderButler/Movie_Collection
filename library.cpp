@@ -1,6 +1,6 @@
 /**
  * @file library.cpp
- * @author1 
+ * @author1 Xander Butler
  * @author2 Jacqueline Bybee
  * @date 2024-03-29
  * @brief Implentation file for library
@@ -50,38 +50,36 @@ void Library::displayAll() const {
     }
 }
 
-void Library::loadFromFile(std::list<Movie> &movies, std::string inFile){
-  std::ifstream inF;
-  inF.open(inFile);
+void Library::loadFromFile(const std::string& inFile) {
+    std::ifstream inF(inFile);
 
-  if (!inF) {
-    std::cerr << "Error: Unable to load file!" << std::endl;
-    return;
-  }
+    if (!inF.is_open()) {
+        std::cerr << "Error: Unable to load file " << inFile << "!" << std::endl;
+        return;
+    }
 
-  std::string titleT;
-  std::string directorT;
-  std::string formatT;
-  int yearT;
-  int runtimeT;
-  float priceT;
+    std::string line;
+    while (std::getline(inF, line)) {
+        Movie newMovie;
+        newMovie.title = line;
 
-  while (std::getline(inF, titleT) && std::getline(inF, directorT) && inF >> runtimeT >> formatT >> priceT >> yearT) {
-    movies.push_back(Movie(titleT, directorT, runtimeT, formatT, priceT, yearT));
-    inF.ignore(); //if it only reads one movie this is the problem...
-  }
+        std::getline(inF, newMovie.director);
+        inF >> newMovie.runtime >> newMovie.format >> newMovie.price >> newMovie.year;
+        inF.ignore(1000, '\n'); // Ignore remaining characters in line
 
-  inF.close();
-  
+        movies.push_back(newMovie);
+    }
+
+    inF.close();
 }
 
-void Library::storeToFile(const std::list<Movie> &movies, std::string outFile){
-  std::ofstream outF(outFile);
+void Library::storeToFile(const std::string& outFile) const {
+    std::ofstream outF(outFile);
 
-  for(const auto &movie : movies){
-    outF << movie.title << std::endl << movie.director << std::endl << movie.runtime << std::endl
-	 << movie.format << std::endl << movie.price << std::endl << movie.year << std::endl
-	 << "-----------------------\n";
-  }
-  outF.close();
+    for (const auto& movie : movies) {
+        outF << movie.title << std::endl << movie.director << std::endl << movie.runtime << std::endl
+             << movie.format << std::endl << movie.price << std::endl << movie.year << std::endl
+             << "-----------------------\n";
+    }
+    outF.close();
 }
