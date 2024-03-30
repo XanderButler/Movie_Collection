@@ -32,11 +32,23 @@ int main() {
 
         switch (choice) {
             case 1:
+                case 1:
                 std::cout << "Enter title: ";
-                std::getline(std::cin, title);
+                std::getline(std::cin, newMovie.title);
                 std::cout << "Enter director: ";
-                std::getline(std::cin, director);
-                // Get other movie details and insert into library
+                std::getline(std::cin, newMovie.director);
+                std::cout << "Enter runtime (minutes): ";
+                std::cin >> newMovie.runtime;
+                std::cin.ignore(); // Clear newline character
+                std::cout << "Enter format: ";
+                std::getline(std::cin, newMovie.format);
+                std::cout << "Enter price: ";
+                std::cin >> newMovie.price;
+                std::cin.ignore(); // Clear newline character
+                std::cout << "Enter year: ";
+                std::cin >> newMovie.year;
+                std::cin.ignore(); // Clear newline character
+                library.insertMovie(newMovie);
                 break;
             case 2:
                 std::cout << "Enter search string: ";
