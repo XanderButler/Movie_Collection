@@ -32,7 +32,6 @@ int main() {
 
         switch (choice) {
             case 1:
-                case 1:
                 std::cout << "Enter title: ";
                 std::getline(std::cin, newMovie.title);
                 std::cout << "Enter director: ";
