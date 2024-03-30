@@ -60,7 +60,7 @@ int main() {
                 library.insertMovie(newMovie);
                 break;
             case 2:
-                std::cout << "Enter search string: ";
+                std::cout << "Enter movie name: ";
                 std::getline(std::cin, searchStr);
                 library.findMovie(searchStr);
                 break;
