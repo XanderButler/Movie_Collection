@@ -20,7 +20,10 @@ int main() {
     Library library;
     int choice;
     std::string searchStr, director, title;
-    Movie newMovie;
+    std::string inFile = "movies.txt";
+
+    // Load movies from file
+    library.loadFromFile(inFile);
 
     while (true) {
         displayMenu();
@@ -30,21 +33,10 @@ int main() {
         switch (choice) {
             case 1:
                 std::cout << "Enter title: ";
-                std::getline(std::cin, newMovie.title);
+                std::getline(std::cin, title);
                 std::cout << "Enter director: ";
-                std::getline(std::cin, newMovie.director);
-                std::cout << "Enter runtime (minutes): ";
-                std::cin >> newMovie.runtime;
-                std::cin.ignore(); // Clear newline character
-                std::cout << "Enter format: ";
-                std::getline(std::cin, newMovie.format);
-                std::cout << "Enter price: ";
-                std::cin >> newMovie.price;
-                std::cin.ignore(); // Clear newline character
-                std::cout << "Enter year: ";
-                std::cin >> newMovie.year;
-                std::cin.ignore(); // Clear newline character
-                library.insertMovie(newMovie);
+                std::getline(std::cin, director);
+                // Get other movie details and insert into library
                 break;
             case 2:
                 std::cout << "Enter search string: ";
@@ -65,6 +57,7 @@ int main() {
                 library.displayAll();
                 break;
             case 6:
+                library.storeToFile(inFile); // Store movies back to file before exiting
                 return 0;
             default:
                 std::cout << "Invalid choice. Please try again.\n";
@@ -82,4 +75,3 @@ void displayMenu() {
   std::cout << "5. Display all movies\n";
   std::cout << "6. Exit\n";
   std::cout << "Enter your choice: ";
-}
