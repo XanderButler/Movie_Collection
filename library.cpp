@@ -10,7 +10,6 @@
 
 #include "library.h"
 
-
 void Movie::display() const {
     std::cout << "Title: " << title << "\n";
     std::cout << "Director: " << director << "\n";
@@ -52,7 +51,7 @@ void Library::displayAll() const {
 }
 
 void Library::loadFromFile(std::list<Movie> &movies, std::string inFile){
-  ifstream inF;
+  std::ifstream inF;
   inF.open(inFile);
 
   if (!inF) {
@@ -80,8 +79,8 @@ void Library::storeToFile(const std::list<Movie> &movies, std::string outFile){
   std::ofstream outF(outFile);
 
   for(const auto &movie : movies){
-    outF << movie.title << endl << movie.director << endl << movie.runtime << endl
-	 << movie.format << endl << movie.price << endl << movie.year << endl
+    outF << movie.title << std::endl << movie.director << std::endl << movie.runtime << std::endl
+	 << movie.format << std::endl << movie.price << std::endl << movie.year << std::endl
 	 << "-----------------------\n";
   }
   outF.close();
