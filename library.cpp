@@ -1,4 +1,15 @@
+/**
+ * @file library.cpp
+ * @author1 
+ * @author2 Jacqueline Bybee
+ * @date 2024-03-29
+ * @brief Implentation file for library
+ * 
+ * Implements all functions of the library class
+ */
+
 #include "library.h"
+
 
 void Movie::display() const {
     std::cout << "Title: " << title << "\n";
@@ -38,4 +49,40 @@ void Library::displayAll() const {
     for (const auto& movie : movies) {
         movie.display();
     }
+}
+
+void Library::loadFromFile(std::list<Movie> &movies, std::string inFile){
+  ifstream inF;
+  inF.open(inFile);
+
+  if (!inF) {
+    std::cerr << "Error: Unable to load file!" << std::endl;
+    return;
+  }
+
+  std::string titleT;
+  std::string directorT;
+  std::string formatT;
+  int yearT;
+  int runtimeT;
+  float priceT;
+
+  while (std::getline(inF, titleT) && std::getline(inF, directorT) && inF >> runtimeT >> formatT >> priceT >> yearT) {
+    movies.push_back(Movie(titleT, directorT, runtimeT, formatT, priceT, yearT));
+    inF.ignore(); //if it only reads one movie this is the problem...
+  }
+
+  inF.close();
+  
+}
+
+void Library::storeToFile(const std::list<Movie> &movies, std::string outFile){
+  std::ofstream outF(outFile);
+
+  for(const auto &movie : movies){
+    outF << movie.title << endl << movie.director << endl << movie.runtime << endl
+	 << movie.format << endl << movie.price << endl << movie.year << endl
+	 << "-----------------------\n";
+  }
+  outF.close();
 }

@@ -14,6 +14,7 @@
 #include <list>
 #include <string>
 #include <iostream>
+#include <fstream>
 
 struct Movie {
     std::string title;
@@ -98,24 +99,26 @@ public:
 /**
  * loads movies from a txt file formated correctly
  *
+ * @param std::list<Movie> &movies List of movies being made.
  * @param std::string inFile the name of the file being inported from.
  * @pre a list needs to exist, and the file needs to be formated.
  * @return void 
  * @post The file of movies will be inserted into the list.
  * 
  */
-  void loadFromFile(std::string inFile);
+  void loadFromFile(std::list<Movie> &movies, std::string inFile);
 
 /**
  * Stores the list of Movies into a txt file
  *
+ * @param const std::list<Movie> &movies The list of movies being exported. 
  * @param std::string outFile The name of the file being exported too.
  * @pre A list of movies need to exist
  * @return void 
  * @post A names txt file will be created and hold the list of movies.
  * 
  */
-  void storeToFile(std::string outFile);
+  void storeToFile(const std::list<Movie> &movies, std::string outFile);
 };
 
 #endif
