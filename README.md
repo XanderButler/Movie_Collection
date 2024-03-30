@@ -21,7 +21,7 @@ You will be immediately met with an interface and a several commands, which incl
 - Exit: Quits the program.
 
 # How Do I Import And Export Files?
-You may wonder where an import file feature may be, that is immediately done for you by movie.txt, which is immediately loaded in by the program upon being executed. While this may make the startup time take a little while, we felt it was best for the user experience to make things more convenient. Do note that movie.txt is also affected by the store all moveis to a file feature, also as a method of convenience.
+You may wonder where an import file feature may be, that is immediately done for you by movie.txt, which is immediately loaded in by the program upon being executed. While this may make the startup time take a little while, we felt it was best for the user experience to make things more convenient. Do note that movie.txt is also affected by the store all movies to a file feature, also as a method of convenience.
 
 # Development Log
 This project was a little difficult on us all, as we had to coordinate a lot after we lost one group member due to a reassignment of groups. We made this repository and pushed many things to it, making code and improving from before many times over until we got something which worked in a way we deemed acceptable. Much testing had to be done, most of which tedious. Some problems we encountered were things like the file not loading in correctly, or even at all. Turns out, a line of space was what was causing the issues.
