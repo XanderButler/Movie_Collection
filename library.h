@@ -1,6 +1,6 @@
 /**
  * @file library.h
- * @author1 
+ * @author1 Xander Butler
  * @author2 Jacqueline Bybee
  * @date 2024-03-29
  * @brief Header file for the library class.
@@ -23,7 +23,6 @@ struct Movie {
     std::string format;
     float price;
     int year;
-
 
 /**
  * Displays the elemets of the movie in a set format.
@@ -106,7 +105,7 @@ public:
  * @post The file of movies will be inserted into the list.
  * 
  */
-  void loadFromFile(std::list<Movie> &movies, std::string inFile);
+  void loadFromFile(const std::string& inFile);
 
 /**
  * Stores the list of Movies into a txt file
@@ -118,7 +117,7 @@ public:
  * @post A names txt file will be created and hold the list of movies.
  * 
  */
-  void storeToFile(const std::list<Movie> &movies, std::string outFile);
+  void storeToFile(const std::string& outFile) const;
 };
 
 #endif
