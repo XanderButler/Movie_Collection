@@ -75,11 +75,21 @@ void Library::loadFromFile(const std::string& inFile) {
 
 void Library::storeToFile(const std::string& outFile) const {
     std::ofstream outF(outFile);
+    if (!outF) {
+        std::cerr << "Error: Unable to open file for writing!\n";
+        return;
+    }
 
     for (const auto& movie : movies) {
-        outF << movie.title << std::endl << movie.director << std::endl << movie.runtime << std::endl
-             << movie.format << std::endl << movie.price << std::endl << movie.year << std::endl
-             << "-----------------------\n";
+        outF << movie.title << "\n";
+        outF << movie.director << "\n";
+        outF << movie.runtime << "\n";
+        outF << movie.format << "\n";
+        outF << movie.price << "\n";
+        outF << movie.year << "\n";
+        outF << "-----------------------\n";
     }
+
     outF.close();
+    std::cout << "Data stored to file: " << outFile << "\n";
 }
