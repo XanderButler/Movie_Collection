@@ -27,5 +27,5 @@ You may wonder where an import file feature may be, that is immediately done for
 This project was a little difficult on us all, as we had to coordinate a lot after we lost one group member due to a reassignment of groups. We made this repository and pushed many things to it, making code and improving from before many times over until we got something which worked in a way we deemed acceptable. Much testing had to be done, most of which tedious. Some problems we encountered were things like the file not loading in correctly, or even at all. Turns out, a line of space was what was causing the issues.
 
 # Authors
-Xander Butler 
+Xander Butler, 
 Jacqueline Bybee
